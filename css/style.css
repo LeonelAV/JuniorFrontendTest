@@ -1,0 +1,31 @@
+body {
+  background-color: #F0F0F0;
+}
+
+.main-container {
+  border-radius: 10px;
+  background-color: white;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.user-form {
+  /*width: 40%;*/
+  padding: 25px 0px 25px 0px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.user-form input {
+  width: 60%;
+  height: 25px;
+  margin-right: 3px;
+  border-radius: 3px;
+  border: 1px solid #d0c9c9;
+}
+
+.user-form button {
+  height: 29px;
+  border-radius: 2px;
+  border: 1px solid #d0c9c9;
+}
