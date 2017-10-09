@@ -44,6 +44,6 @@ If the searched username does not exist: An error is shown
 
 ![](https://github.com/gerardcobas/JuniorFrontendTest/blob/master/images/Error-screen.png)
 
-
-
+#### Gif 
+![](https://github.com/LeonelAV/JuniorFrontendTest/blob/master/images/gifGithub.gif)
 
