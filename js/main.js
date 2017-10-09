@@ -5,18 +5,18 @@ var userInfo = function(){
   var username = document.querySelector('#username').value
 
   var userData = function(url, callback){
-    var xhr = new XMLHttpRequest()
-    xhr.onload = function(){
-      if (xhr.readyState == 4 && xhr.status == 200){ //readyState 4 means the request is done and status 200 is a successful return
-        callback(null, xhr.response)
+    var ourRequest = new XMLHttpRequest()
+    ourRequest.open('GET', url, true)
+    ourRequest.responseType = 'json'
+    ourRequest.onload = function(){
+      if (ourRequest.readyState == 4 && ourRequest.status == 200){ //readyState 4 means the request is done and status 200 is a successful return
+        callback(null, ourRequest.response)
       } else {
-        callback(xhr.status) //an error ocurred during the request
+        callback(ourRequest.status) //an error ocurred during the request
       }
+    }
+    ourRequest.send()
   }
-    xhr.open('GET', url, true)
-    xhr.responseType = 'json'
-    xhr.send()
-}
 
 
   userData('https://api.github.com/users/' + username, function(err, data) {
