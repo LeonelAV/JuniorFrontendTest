@@ -6,11 +6,11 @@ var userInfo = function(){
 
   var userData = function(url, callback){
     var xhr = new XMLHttpRequest()
-    xhr.onreadystatechange = function(){
+    xhr.onload = function(){
       if(xhr.readyState == 4 && xhr.status == 200){ //readyState 4 means the request is done and status 200 is a successful return
         callback(null, xhr.response)
       } else {
-        callback(status) //an error ocurred during the request
+        callback(xhr.status) //an error ocurred during the request
       }
   }
 
@@ -42,12 +42,18 @@ var userInfo = function(){
 
   userData('https://api.github.com/users/' + username + '/repos', function(err, data){
     if (err != null ) {
-      console.log('something went wrong')
+      throw err
   	} else {
       document.getElementById('repositories-list').style.display = 'inline-block'
-      for (i = 0; i < data.length; i++) {
-        document.getElementById('repository-details').innerHTML += `<li><h4>${data[i].name}</h4><div><img src="images/filled_star1600.png"> ${data[i].stargazers_count}<img src="images/logo.png"> ${data[i].forks_count}</div</li>`
-      }
+      var reposHtml = document.getElementById('repository-details')
+      var tpl = ''
+      data.forEach(function(elem){
+        tpl += '<li><h4>' + elem.name + '</h4>' 
+            + '<div><img src="images/filled_star1600.png">' 
+            + elem.stargazers_count + '<img src="images/logo.png">' 
+            + elem.forks_count + '</div</li>'
+      })
+      reposHtml.innerHTML = tpl
     }
   })
 }
