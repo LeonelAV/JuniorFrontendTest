@@ -28,6 +28,8 @@ body {
   height: 29px;
   border-radius: 2px;
   border: 1px solid #d0c9c9;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 
@@ -38,6 +40,7 @@ body {
   width: auto;
   height: 100px;
   margin-top:20px;
+  border-radius: 4px;
 }
 
 #user-info {
@@ -65,7 +68,7 @@ body {
 
 /**** error *****/
 
-#error {
+.error {
   border: 1px solid #DBC5C5;
   margin-left: 40px;
   margin-right: 41px;
@@ -76,13 +79,16 @@ body {
   background-color: #F9DEDE;
 }
 
-#error p {
+.error p {
   padding-left: 10px;
   color: #A22519;
   font-family: sans-serif;
 }
 
 /*** repositories info ***/
+#repositories-info {
+  display: none;
+}
 
 #repositories-list {
   display: none;
